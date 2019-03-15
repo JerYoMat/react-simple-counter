@@ -10,6 +10,14 @@ function Child({ onAction }) {
   );
 }
 
+function ResetButton({ onAction }) {
+  return (
+    <button onClick={onAction}>
+      Reset!
+    </button>
+    );
+}
+
 
 class CountingParent extends React.Component {
   state = {
@@ -20,21 +28,35 @@ class CountingParent extends React.Component {
       actionCount: this.state.actionCount + 1
     });
   }
+  handleReset = (action) => {
+    this.setState({
+      actionCount: 0
+    });
+  }
 
   render() {
     return (
       <div>
         <Child onAction={this.handleAction} />
+        <ResetButton onAction={this.handleReset} />
         <p>Clicked {this.state.actionCount} times</p>
       </div>
     );
   }
 }
 
+const Page = () => (
+  <div>
+    <CountingParent />
+    <CountingParent />
+    <CountingParent />
+  </div>
+)
 
 
 
 
-ReactDOM.render(<CountingParent />, document.getElementById('root'));
+
+ReactDOM.render(<Page />, document.getElementById('root'));
 
 
