@@ -5,14 +5,14 @@ import './index.css';
 function Child({ onAction }) {
   return (
     <button onClick={onAction}>
-      Click to increment
+      Click to increm4nt
     </button>
   );
 }
 
 function ResetButton({ onAction }) {
   return (
-    <button onClick={onAction}>
+    <button onClick={onAction}>4
       Reset!
     </button>
     );
